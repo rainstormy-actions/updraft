@@ -1,0 +1,92 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+	"files": {
+		"ignore": [".idea/", "dist/", "node_modules/"]
+	},
+	"javascript": {
+		"formatter": {
+			"semicolons": "asNeeded"
+		}
+	},
+	"linter": {
+		"rules": {
+			"all": true,
+			"correctness": {
+				"noUndeclaredVariables": "off"
+			},
+			"style": {
+				"noImplicitBoolean": "off",
+				"noNamespace": "off",
+				"useConsistentArrayType": {
+					"level": "error",
+					"options": { "syntax": "generic" }
+				},
+				"useFilenamingConvention": {
+					"level": "error",
+					"options": {
+						"filenameCases": ["PascalCase"]
+					}
+				},
+				"useNamingConvention": "off",
+				"useNodejsImportProtocol": "off",
+				"useShorthandArrayType": "off"
+			},
+			"suspicious": {
+				"useAwait": "off"
+			},
+			"nursery": {
+				"all": true,
+				"noReactSpecificProps": "off",
+				"noUndeclaredDependencies": "off",
+				"useDefaultSwitchClause": "off",
+				"useSortedClasses": "off"
+			}
+		}
+	},
+	"overrides": [
+		{
+			"include": ["*.config.js", "*.config.ts"],
+			"linter": {
+				"rules": {
+					"correctness": {
+						"noNodejsModules": "off"
+					},
+					"style": {
+						"noDefaultExport": "off",
+						"useFilenamingConvention": {
+							"level": "error",
+							"options": {
+								"filenameCases": ["kebab-case"]
+							}
+						}
+					},
+					"nursery": {
+						"useImportRestrictions": "off"
+					}
+				}
+			}
+		},
+		{
+			"include": [
+				"src/**/*.mock.ts",
+				"src/**/*.mock.tsx",
+				"src/**/*.testdata.ts",
+				"src/**/*.testdata.tsx",
+				"src/**/*.tests.ts",
+				"src/**/*.tests.tsx"
+			],
+			"linter": {
+				"rules": {
+					"complexity": {
+						"noExcessiveCognitiveComplexity": {
+							"level": "error",
+							"options": {
+								"maxAllowedComplexity": 2
+							}
+						}
+					}
+				}
+			}
+		}
+	]
+}
