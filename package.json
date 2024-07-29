@@ -8,12 +8,16 @@
 	"scripts": {
 		"check": "pnpm check.fmt",
 		"check.fmt": "biome check --error-on-warnings",
-		"fmt": "biome check --write"
+		"fmt": "biome check --write",
+		"postinstall": "lefthook install",
+		"yolo": "lefthook uninstall"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.8.3"
+		"@biomejs/biome": "1.8.3",
+		"lefthook": "1.7.9"
 	},
 	"// devDependencies": {
-		"@biomejs/biome": "Biome is an opinionated linter and code formatter."
+		"@biomejs/biome": "Biome is an opinionated linter and code formatter.",
+		"lefthook": "Lefthook is a Git hooks manager."
 	}
 }

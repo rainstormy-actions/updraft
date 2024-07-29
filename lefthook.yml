@@ -1,0 +1,92 @@
+# Define Git hooks.
+# https://github.com/evilmartians/lefthook/blob/master/docs/configuration.md
+
+pre-commit:
+  commands:
+    pnpm-fmt:
+      # language=sh
+      run: |
+        # Skip confirmation prompts when Corepack is about to upgrade pnpm.
+        CI=1 pnpm fmt
+      stage_fixed: true
+  skip:
+    - merge
+    - rebase
+
+pre-push:
+  parallel: true
+  commands:
+    pnpm-check:
+      # language=sh
+      run: |
+        # Skip confirmation prompts when Corepack is about to upgrade pnpm.
+        CI=1 pnpm check
+
+post-checkout:
+  commands:
+    nvm-install-pnpm-install:
+      # language=sh
+      run: |
+        OLD_HEAD_SHA="$(git rev-parse HEAD@\{1\})"
+        NEW_HEAD_SHA="$(git rev-parse HEAD)"
+        DIFF="$(git diff --name-only "$OLD_HEAD_SHA" "$NEW_HEAD_SHA" -- '.nvmrc' 'pnpm-lock.yaml')"
+
+        echo "Evaluating changes between the old HEAD commit '$OLD_HEAD_SHA' and the new HEAD commit '$NEW_HEAD_SHA':"
+
+        if echo "$DIFF" | grep -q '.nvmrc'; then
+          echo "- Changes detected in '.nvmrc'. Running 'nvm install' and 'corepack enable'."
+          source ~/.nvm/nvm.sh
+          nvm install
+          nvm alias default $(cat .nvmrc)
+          corepack enable
+        else
+          echo "- No changes detected in '.nvmrc'. Skipping 'nvm install' and 'corepack enable'."
+        fi
+
+        if echo "$DIFF" | grep -q 'pnpm-lock.yaml'; then
+          echo "- Changes detected in 'pnpm-lock.yaml'. Running 'pnpm install'."
+          # Skip confirmation prompts when Corepack is about to upgrade pnpm.
+          CI=1 pnpm install
+        else
+          echo "- No changes detected in 'pnpm-lock.yaml'. Skipping 'pnpm install'."
+        fi
+
+post-rewrite:
+  commands:
+    nvm-install-pnpm-install:
+      use_stdin: true
+      # language=sh
+      run: |
+        while read OLD_SHA NEW_SHA EXTRA; do
+          if [ -z "$FIRST_OLD_SHA" ]; then
+            FIRST_OLD_SHA="$OLD_SHA"
+          fi
+        done
+
+        BASE_SHA="$(git rev-parse "$FIRST_OLD_SHA~1")"
+        REBASED_SHA="$(git rev-parse HEAD)"
+        DIFF="$(git diff --name-only "$BASE_SHA" "$REBASED_SHA" -- '.nvmrc' 'pnpm-lock.yaml')"
+
+        echo "Evaluating changes between the base commit '$BASE_SHA' and the rebased commit '$REBASED_SHA':"
+
+        if echo "$DIFF" | grep -q '.nvmrc'; then
+          echo "- Changes detected in '.nvmrc'. Running 'nvm install' and 'corepack enable'."
+          source ~/.nvm/nvm.sh
+          nvm install
+          nvm alias default $(cat .nvmrc)
+          corepack enable
+        else
+          echo "- No changes detected in '.nvmrc'. Skipping 'nvm install' and 'corepack enable'."
+        fi
+
+        if echo "$DIFF" | grep -q 'pnpm-lock.yaml'; then
+          echo "- Changes detected in 'pnpm-lock.yaml'. Running 'pnpm install'."
+          # Skip confirmation prompts when Corepack is about to upgrade pnpm.
+          CI=1 pnpm install
+        else
+          echo "- No changes detected in 'pnpm-lock.yaml'. Skipping 'pnpm install'."
+        fi
+
+skip_output:
+  - meta
+  - summary

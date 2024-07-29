@@ -23,6 +23,12 @@
 			"script": "install",
 			"problemMatcher": [],
 			"label": "install"
+		},
+		{
+			"type": "npm",
+			"script": "yolo",
+			"problemMatcher": [],
+			"label": "yolo"
 		}
 	]
 }
