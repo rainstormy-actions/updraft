@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      tslib:
+        specifier: 2.6.3
+        version: 2.6.3
     devDependencies:
       '@biomejs/biome':
         specifier: 1.8.3
@@ -14,6 +18,9 @@ importers:
       lefthook:
         specifier: 1.7.9
         version: 1.7.9
+      typescript:
+        specifier: 5.5.4
+        version: 5.5.4
 
 packages:
 
@@ -114,6 +121,14 @@ packages:
     resolution: {integrity: sha512-/C8By2tUk/fHgLd1iH1elSPsYO75/hdNhyJvvQzLNtZ2IH7x3mC5a1pf1Zijpj+QD2vhRyz5W5sr9DShKvEagA==}
     hasBin: true
 
+  tslib@2.6.3:
+    resolution: {integrity: sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==}
+
+  typescript@5.5.4:
+    resolution: {integrity: sha512-Mtq29sKDAEYP7aljRgtPOpTvOfbwRWlS6dPRzwjdE+C0R4brX/GUyhHSecbHMFLNBLcJIPt9nl9yG5TZ1weH+Q==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
 snapshots:
 
   '@biomejs/biome@1.8.3':
@@ -185,3 +200,7 @@ snapshots:
       lefthook-linux-x64: 1.7.9
       lefthook-windows-arm64: 1.7.9
       lefthook-windows-x64: 1.7.9
+
+  tslib@2.6.3: {}
+
+  typescript@5.5.4: {}

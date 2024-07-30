@@ -6,18 +6,27 @@
 		"node": ">=20.0.0"
 	},
 	"scripts": {
-		"check": "pnpm check.fmt",
+		"check": "pnpm check.fmt && pnpm check.types",
 		"check.fmt": "biome check --error-on-warnings",
+		"check.types": "tsc",
 		"fmt": "biome check --write",
 		"postinstall": "lefthook install",
 		"yolo": "lefthook uninstall"
 	},
+	"dependencies": {
+		"tslib": "2.6.3"
+	},
+	"// dependencies": {
+		"tslib": "This optimisation library is required by `importHelpers` in `tsconfig.json`."
+	},
 	"devDependencies": {
 		"@biomejs/biome": "1.8.3",
-		"lefthook": "1.7.9"
+		"lefthook": "1.7.9",
+		"typescript": "5.5.4"
 	},
 	"// devDependencies": {
 		"@biomejs/biome": "Biome is an opinionated linter and code formatter.",
-		"lefthook": "Lefthook is a Git hooks manager."
+		"lefthook": "Lefthook is a Git hooks manager.",
+		"typescript": "TypeScript is a statically typed programming language on top of JavaScript."
 	}
 }
