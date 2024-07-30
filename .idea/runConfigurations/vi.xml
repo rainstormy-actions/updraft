@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="vi" type="js.build_tools.npm" activateToolWindowBeforeRun="false" nameIsGenerated="true">
+    <package-json value="$PROJECT_DIR$/package.json" />
+    <command value="run" />
+    <scripts>
+      <script value="vi" />
+    </scripts>
+    <node-interpreter value="project" />
+    <envs />
+    <EXTENSION ID="com.intellij.lang.javascript.buildTools.npm.rc.StartBrowserRunConfigurationExtension">
+      <browser start="true" url="http://localhost:51204/__vitest__/" />
+    </EXTENSION>
+    <method v="2" />
+  </configuration>
+</component>

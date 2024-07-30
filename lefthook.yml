@@ -21,6 +21,11 @@ pre-push:
       run: |
         # Skip confirmation prompts when Corepack is about to upgrade pnpm.
         CI=1 pnpm check
+    pnpm-test:
+      # language=sh
+      run: |
+        # Skip confirmation prompts when Corepack is about to upgrade pnpm.
+        CI=1 pnpm test
 
 post-checkout:
   commands:

@@ -87,6 +87,21 @@
 					}
 				}
 			}
+		},
+		{
+			"include": ["src/index.ts"],
+			"linter": {
+				"rules": {
+					"style": {
+						"useFilenamingConvention": {
+							"level": "error",
+							"options": {
+								"filenameCases": ["kebab-case"]
+							}
+						}
+					}
+				}
+			}
 		}
 	]
 }

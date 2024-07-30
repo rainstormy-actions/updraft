@@ -2,6 +2,12 @@
 	"tasks": [
 		{
 			"type": "npm",
+			"script": "build",
+			"problemMatcher": [],
+			"label": "build"
+		},
+		{
+			"type": "npm",
 			"script": "check",
 			"problemMatcher": [],
 			"label": "check"
@@ -29,6 +35,18 @@
 			"script": "install",
 			"problemMatcher": [],
 			"label": "install"
+		},
+		{
+			"type": "npm",
+			"script": "test",
+			"problemMatcher": [],
+			"label": "test"
+		},
+		{
+			"type": "npm",
+			"script": "vi",
+			"problemMatcher": [],
+			"label": "vi"
 		},
 		{
 			"type": "npm",

@@ -6,11 +6,14 @@
 		"node": ">=20.0.0"
 	},
 	"scripts": {
+		"build": "vite build --ssr src/index.ts",
 		"check": "pnpm check.fmt && pnpm check.types",
 		"check.fmt": "biome check --error-on-warnings",
 		"check.types": "tsc",
 		"fmt": "biome check --write",
 		"postinstall": "lefthook install",
+		"test": "CI=1 vitest run",
+		"vi": "CI=1 vitest watch --ui",
 		"yolo": "lefthook uninstall"
 	},
 	"dependencies": {
@@ -21,12 +24,21 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.8.3",
+		"@types/node": "20.14.13",
+		"@vitest/coverage-v8": "1.6.0",
+		"@vitest/ui": "1.6.0",
 		"lefthook": "1.7.9",
-		"typescript": "5.5.4"
+		"typescript": "5.5.4",
+		"vite": "5.3.5",
+		"vitest": "1.6.0"
 	},
 	"// devDependencies": {
 		"@biomejs/biome": "Biome is an opinionated linter and code formatter.",
+		"@vitest/coverage-v8": "This Vitest plugin reports code coverage.",
+		"@vitest/ui": "This Vitest plugin provides a test overview in the web browser.",
 		"lefthook": "Lefthook is a Git hooks manager.",
-		"typescript": "TypeScript is a statically typed programming language on top of JavaScript."
+		"typescript": "TypeScript is a statically typed programming language on top of JavaScript.",
+		"vite": "Vite is a development server and a bundler.",
+		"vitest": "Vitest is a unit testing framework."
 	}
 }
