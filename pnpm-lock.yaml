@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@rainstormy/updraft':
+        specifier: 1.1.0
+        version: 1.1.0
       tslib:
         specifier: 2.6.3
         version: 2.6.3
@@ -295,6 +298,11 @@ packages:
   '@polka/url@1.0.0-next.25':
     resolution: {integrity: sha512-j7P6Rgr3mmtdkeDGTe0E/aYyWEWVtc5yFXtHCRHs28/jptDEWfaVOc5T7cblqy1XKPPfCxJc/8DwQ5YgLOZOVQ==}
 
+  '@rainstormy/updraft@1.1.0':
+    resolution: {integrity: sha512-u2EhNCmP4w2czMTKc/GbO+t+EMUnEncOe5BL8W/sPyJ6By9AZ7qHhHzUYZO1/a+EQwnlAGN1iSW21pgQ0fl3kw==}
+    engines: {node: '>=20.0.0'}
+    hasBin: true
+
   '@rollup/rollup-android-arm-eabi@4.19.1':
     resolution: {integrity: sha512-XzqSg714++M+FXhHfXpS1tDnNZNpgxxuGZWlRG/jSj+VEPmZ0yg6jV4E0AL3uyBKxO8mO3xtOsP5mQ+XLfrlww==}
     cpu: [arm]
@@ -421,6 +429,10 @@ packages:
   ansi-styles@5.2.0:
     resolution: {integrity: sha512-Cxwpt2SfTzTtXcfOlzGEee8O+c+MmUgGrNiBcXnuWxuFJHe6a5Hz7qwhwe5OgaSYI0IJvkLqWX1ASG+cJOkEiA==}
     engines: {node: '>=10'}
+
+  ansis@3.3.2:
+    resolution: {integrity: sha512-cFthbBlt+Oi0i9Pv/j6YdVWJh54CtjGACaMPCIrEV4Ha7HWsIjXDwseYV79TIL0B4+KfSwD5S70PeQDkPUd1rA==}
+    engines: {node: '>=15'}
 
   assertion-error@1.1.0:
     resolution: {integrity: sha512-jgsaNduz+ndvGyFt3uSuWqvy4lCnIJiovtouQN5JZHOKCS2QuhEdbcQHFhVksz2N2U9hXJo8odG7ETyWlEeuDw==}
@@ -1073,6 +1085,12 @@ snapshots:
 
   '@polka/url@1.0.0-next.25': {}
 
+  '@rainstormy/updraft@1.1.0':
+    dependencies:
+      ansis: 3.3.2
+      fast-glob: 3.3.2
+      tslib: 2.6.3
+
   '@rollup/rollup-android-arm-eabi@4.19.1':
     optional: true
 
@@ -1195,6 +1213,8 @@ snapshots:
   acorn@8.12.1: {}
 
   ansi-styles@5.2.0: {}
+
+  ansis@3.3.2: {}
 
   assertion-error@1.1.0: {}
 

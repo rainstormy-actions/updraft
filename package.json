@@ -17,9 +17,11 @@
 		"yolo": "lefthook uninstall"
 	},
 	"dependencies": {
+		"@rainstormy/updraft": "1.1.0",
 		"tslib": "2.6.3"
 	},
 	"// dependencies": {
+		"@rainstormy/updraft": "Updraft updates changelogs and bumps version numbers.",
 		"tslib": "This optimisation library is required by `importHelpers` in `tsconfig.json`."
 	},
 	"devDependencies": {
