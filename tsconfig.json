@@ -20,7 +20,10 @@
 		"noImplicitThis": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
-		"paths": {},
+		"paths": {
+			"+action/*": ["./src/action/*"],
+			"+utilities/*": ["./src/utilities/*"]
+		},
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
 		"sourceMap": true,
